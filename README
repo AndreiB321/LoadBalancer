@@ -1,0 +1,40 @@
+Copyright 2021 <Andrei Bulica>
+
+load_balancer.c
+    init_load_balancer()
+        Se initializeaza si se aloca structura
+    loader_store()
+        Se cauta pozitia unde sa se insereze server-ul si apoi se alocaS
+    loader_retrieve()
+        Se cauta pozitia (dupa hash) unde se afla serverul si apoi se returneaza
+    loader_add_server()
+        Se adauga server-ul impreuna cu replicile sale, iar pentru fiecare replica,
+        se vor redistribui chei din urmatorul server
+    loader_remove_server()
+        Se elimina server-ul si se redistribuie cheile
+    free_load_balancer()
+        Eliberare memorie servere principale
+
+server.c
+    init_server_memory()
+        Initializare si alocare server si hashtable
+    server_store()
+        Modificare sau adugare element in bucket-ul corespunzator
+    server_remove()
+        Eliminare elemnt din bucket
+    free_data()
+        Eliberare memorie nod
+
+help.c
+    strdup()
+        Implementare strdup utilizand DIE
+    find_next_server()
+        Cautarea primului server, mai mare decat server-ul dat
+    delete_element()
+        Eliminare element prin shiftarea la stanga a tuturor elemntelor din
+        dreapta pozitiei eliminate
+    add_element()
+        Adaugare element prin shiftarea la dreapta a tuturor elemntelor din 
+        dreapta pozitiei eliminate, iar apoi initializarea noului element
+    get_server()
+        Cautare server dupa hash
